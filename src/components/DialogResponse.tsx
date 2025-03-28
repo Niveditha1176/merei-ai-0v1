@@ -28,14 +28,14 @@ const DialogResponse: React.FC<DialogResponseProps> = ({ isOpen, onClose, query 
         title: t('common.checkPests'),
         cards: [
           {
-            title: "Pest Detection",
+            title: t('common.pestDetection'),
             icon: <Leaf />,
-            content: "Your cotton field appears to have signs of aphid infestation. These small insects are visible on the underside of leaves."
+            content: t('common.pestDescription')
           },
           {
-            title: "Recommended Action",
+            title: t('common.recommendedAction'),
             icon: <Sprout />,
-            content: "Apply neem oil spray in the early morning. Use 5ml per liter of water and spray every 7 days for 3 weeks."
+            content: t('common.actionDescription')
           }
         ]
       };
@@ -44,14 +44,14 @@ const DialogResponse: React.FC<DialogResponseProps> = ({ isOpen, onClose, query 
         title: t('common.bestTimeWater'),
         cards: [
           {
-            title: "Weather Forecast",
+            title: t('common.weatherForecast'),
             icon: <Cloud />,
-            content: "Light rainfall expected in the next 48 hours in your region. Total precipitation: 15-20mm."
+            content: t('common.weatherDescription')
           },
           {
-            title: "Watering Recommendation",
+            title: t('common.wateringRecommendation'),
             icon: <Sprout />,
-            content: "Wait until after the rain to assess soil moisture. Early morning watering is recommended if soil still appears dry."
+            content: t('common.wateringDescription')
           }
         ]
       };
@@ -60,14 +60,14 @@ const DialogResponse: React.FC<DialogResponseProps> = ({ isOpen, onClose, query 
         title: t('common.improveSoil'),
         cards: [
           {
-            title: "Soil Analysis",
+            title: t('common.soilAnalysis'),
             icon: <Sprout />,
-            content: "Your soil sample shows low nitrogen (N) content and moderate phosphorus (P). pH level is 6.2 which is slightly acidic."
+            content: t('common.soilAnalysisDesc')
           },
           {
-            title: "Improvement Strategy",
+            title: t('common.improvementStrategy'),
             icon: <Leaf />,
-            content: "Add compost and well-rotted manure to improve nitrogen levels. Consider growing legumes as a cover crop to fix nitrogen naturally."
+            content: t('common.improvementDesc')
           }
         ]
       };
