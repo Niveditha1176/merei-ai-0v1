@@ -11,7 +11,7 @@ import {
 import { Globe, Check } from 'lucide-react';
 
 const LanguageSidebar = () => {
-  const { language, setLanguage } = useApp();
+  const { language, setLanguage, theme } = useApp();
   const { t, i18n } = useTranslation();
 
   const languages = [
@@ -37,9 +37,9 @@ const LanguageSidebar = () => {
   };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className={`h-full flex flex-col ${theme === 'dark' ? 'bg-slate-800 text-white' : ''}`}>
       {/* Header with logo */}
-      <div className="p-4 border-b border-gray-100">
+      <div className={`p-4 ${theme === 'dark' ? 'border-slate-700' : 'border-gray-100'} border-b`}>
         <div className="flex items-center gap-2">
           <div className="relative w-8 h-8">
             {/* Logo elements from Logo component */}
@@ -59,7 +59,7 @@ const LanguageSidebar = () => {
         
         <Accordion type="single" collapsible className="w-full" defaultValue="languages">
           <AccordionItem value="languages" className="border-none">
-            <AccordionTrigger className="text-sm py-2 hover:no-underline">
+            <AccordionTrigger className={`text-sm py-2 hover:no-underline ${theme === 'dark' ? 'text-gray-200' : ''}`}>
               {t('common.languages')}
             </AccordionTrigger>
             <AccordionContent>
@@ -70,13 +70,15 @@ const LanguageSidebar = () => {
                     onClick={() => handleLanguageChange(lang.code)}
                     className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded-md transition-colors ${
                       language === lang.code 
-                        ? 'bg-primary/10 text-primary font-medium' 
-                        : 'hover:bg-slate-100'
+                        ? `bg-primary/10 text-primary font-medium` 
+                        : theme === 'dark' 
+                          ? 'hover:bg-slate-700' 
+                          : 'hover:bg-slate-100'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span>{lang.name}</span>
-                      <span className="text-xs opacity-70">{lang.native}</span>
+                      <span className={`text-xs ${theme === 'dark' ? 'opacity-60' : 'opacity-70'}`}>{lang.native}</span>
                     </div>
                     {language === lang.code && (
                       <Check size={16} className="text-primary" />
@@ -90,7 +92,7 @@ const LanguageSidebar = () => {
       </div>
       
       {/* Footer with version */}
-      <div className="p-4 text-xs text-gray-400 border-t border-gray-100">
+      <div className={`p-4 text-xs ${theme === 'dark' ? 'text-gray-500 border-slate-700' : 'text-gray-400 border-gray-100'} border-t`}>
         MEREI v1.0
       </div>
     </div>
