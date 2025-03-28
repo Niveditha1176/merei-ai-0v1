@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Logo from '@/components/Logo';
@@ -9,18 +9,19 @@ import { useApp } from '@/contexts/AppContext';
 import LanguageSelector from '@/components/LanguageSelector';
 
 const Index = () => {
-  const { language, recentQueries, setCurrentQuery, addQuery } = useApp();
+  const { language, recentQueries, setCurrentQuery, addQuery, setLanguage } = useApp();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
 
   // Update the current language from localStorage if available
-  React.useEffect(() => {
+  useEffect(() => {
     const savedLanguage = localStorage.getItem('i18nextLng');
     if (savedLanguage) {
       i18n.changeLanguage(savedLanguage);
+      setLanguage(savedLanguage); // Update app context language as well
     }
-  }, [i18n]);
+  }, [i18n, setLanguage]);
 
   const handleMicClick = () => {
     toast({
@@ -39,9 +40,13 @@ const Index = () => {
         <Logo />
         <div className="w-32">
           <LanguageSelector onChange={(lang) => {
-            useApp().setLanguage(lang);
-            // Force reload to apply translations immediately
-            window.location.reload();
+            setLanguage(lang);
+            i18n.changeLanguage(lang).then(() => {
+              // Store the language in localStorage for persistence
+              localStorage.setItem('i18nextLng', lang);
+              // Force reload to apply translations immediately
+              window.location.reload();
+            });
           }} value={language} />
         </div>
       </header>

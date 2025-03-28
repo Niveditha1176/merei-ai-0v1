@@ -4,6 +4,9 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
+// Import translations
+import hiTranslations from './translations/hi';
+
 // English translations
 const enTranslations = {
   "common": {
@@ -16,54 +19,6 @@ const enTranslations = {
   }
 };
 
-// Hindi translations
-const hiTranslations = {
-  "common": {
-    "askAbout": "मिट्टी, मौसम, या कीड़े के बारे में पूछें",
-    "recentQueries": "हाल ही की पूछताछ",
-    "listening": "सुन रहा हूँ",
-    "speakNow": "अब बोलिए",
-    "languages": "भाषाएँ",
-    "cancel": "रद्द करें"
-  }
-};
-
-// Punjabi translations
-const paTranslations = {
-  "common": {
-    "askAbout": "ਮਿੱਟੀ, ਮੌਸਮ, ਜਾਂ ਕੀੜਿਆਂ ਬਾਰੇ ਪੁੱਛੋ",
-    "recentQueries": "ਹਾਲੀਆ ਪ੍ਰਸ਼ਨ",
-    "listening": "ਸੁਣ ਰਿਹਾ ਹੈ",
-    "speakNow": "ਹੁਣ ਬੋਲੋ",
-    "languages": "ਭਾਸ਼ਾਵਾਂ",
-    "cancel": "ਰੱਦ ਕਰੋ"
-  }
-};
-
-// Telugu translations
-const teTranslations = {
-  "common": {
-    "askAbout": "మట్టి, వాతావరణం లేదా పురుగుల గురించి అడగండి",
-    "recentQueries": "ఇటీవల ప్రశ్నలు",
-    "listening": "వింటున్నాము",
-    "speakNow": "ఇప్పుడు మాట్లాడండి",
-    "languages": "భాషలు",
-    "cancel": "రద్దు"
-  }
-};
-
-// Tamil translations
-const taTranslations = {
-  "common": {
-    "askAbout": "மண், வானிலை அல்லது பூச்சிகளைப் பற்றி கேளுங்கள்",
-    "recentQueries": "சமீபத்திய வினவல்கள்",
-    "listening": "கேட்கிறேன்",
-    "speakNow": "இப்போது பேசவும்",
-    "languages": "மொழிகள்",
-    "cancel": "ரத்து செய்"
-  }
-};
-
 // Initialize i18next
 i18n
   .use(Backend)
@@ -73,9 +28,36 @@ i18n
     resources: {
       en: enTranslations,
       hi: hiTranslations,
-      pa: paTranslations,
-      te: teTranslations,
-      ta: taTranslations
+      pa: {
+        common: {
+          "askAbout": "ਮਿੱਟੀ, ਮੌਸਮ, ਜਾਂ ਕੀੜਿਆਂ ਬਾਰੇ ਪੁੱਛੋ",
+          "recentQueries": "ਹਾਲੀਆ ਪ੍ਰਸ਼ਨ",
+          "listening": "ਸੁਣ ਰਿਹਾ ਹੈ",
+          "speakNow": "ਹੁਣ ਬੋਲੋ",
+          "languages": "ਭਾਸ਼ਾਵਾਂ",
+          "cancel": "ਰੱਦ ਕਰੋ"
+        }
+      },
+      te: {
+        common: {
+          "askAbout": "మట్టి, వాతావరణం లేదా పురుగుల గురించి అడగండి",
+          "recentQueries": "ఇటీవల ప్రశ్నలు",
+          "listening": "వింటున్నాము",
+          "speakNow": "ఇప్పుడు మాట్లాడండి",
+          "languages": "భాషలు",
+          "cancel": "రద్దు"
+        }
+      },
+      ta: {
+        common: {
+          "askAbout": "மண், வானிலை அல்லது பூச்சிகளைப் பற்றி கேளுங்கள்",
+          "recentQueries": "சமீபத்திய வினவல்கள்",
+          "listening": "கேட்கிறேன்",
+          "speakNow": "இப்போது பேசவும்",
+          "languages": "மொழிகள்",
+          "cancel": "ரத்து செய்"
+        }
+      }
     },
     fallbackLng: 'en',
     debug: true,

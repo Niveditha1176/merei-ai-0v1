@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Select, 
   SelectContent, 
@@ -7,6 +7,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
+import { useTranslation } from 'react-i18next';
 
 interface LanguageSelectorProps {
   onChange: (language: string) => void;
@@ -14,6 +15,8 @@ interface LanguageSelectorProps {
 }
 
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onChange, value }) => {
+  const { i18n } = useTranslation();
+  
   const languages = [
     { code: 'en', name: 'English' },
     { code: 'hi', name: 'Hindi' },
@@ -22,8 +25,12 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onChange, value }) 
     { code: 'ta', name: 'Tamil' },
   ];
 
+  const handleLanguageChange = (langCode: string) => {
+    onChange(langCode);
+  };
+
   return (
-    <Select value={value} onValueChange={onChange}>
+    <Select value={value} onValueChange={handleLanguageChange}>
       <SelectTrigger className="w-full">
         <SelectValue placeholder="Select language" />
       </SelectTrigger>
