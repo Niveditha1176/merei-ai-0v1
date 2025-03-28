@@ -108,6 +108,10 @@
   .response-card {
     @apply bg-white rounded-lg shadow-md p-4 mb-4 opacity-0;
   }
+  
+  .sidebar {
+    @apply bg-white border-r border-gray-200 h-full overflow-y-auto transition-all duration-200 ease-in-out;
+  }
 }
 
 @keyframes wave {

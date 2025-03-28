@@ -3,16 +3,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '@/components/Logo';
 import MicButton from '@/components/MicButton';
-import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/components/ui/use-toast';
+import { useApp } from '@/contexts/AppContext';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const Index = () => {
   const [isListening, setIsListening] = useState(false);
-  const [recentQueries, setRecentQueries] = useState([
-    "Soil status today",
-    "When to water?",
-    "Check for pests"
-  ]);
+  const { language, recentQueries, setCurrentQuery, addQuery } = useApp();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -31,7 +28,8 @@ const Index = () => {
       
       // Add the new query to recent queries
       const newQuery = "Check for pests in my cotton field";
-      setRecentQueries(prev => [newQuery, ...prev.slice(0, 4)]);
+      setCurrentQuery(newQuery);
+      addQuery(newQuery, "No pests detected in your cotton field today.");
       
       // Navigate to response page after processing
       setTimeout(() => {
@@ -45,8 +43,7 @@ const Index = () => {
       <header className="p-4 flex items-center justify-between">
         <Logo />
         <div className="w-32">
-          {/* Language selector would go here */}
-          <Skeleton className="h-10 w-full" />
+          <LanguageSelector onChange={(lang) => useApp().setLanguage(lang)} value={language} />
         </div>
       </header>
       
@@ -61,8 +58,9 @@ const Index = () => {
           <h3 className="text-sm font-medium mb-2 text-gray-500">Recent queries</h3>
           <div className="space-y-2">
             {recentQueries.map((query, index) => (
-              <div key={index} className="bg-white p-3 rounded-lg shadow-sm">
-                {query}
+              <div key={query.id} className="bg-white p-3 rounded-lg shadow-sm">
+                <div>{query.question}</div>
+                <div className="text-sm text-gray-500 mt-1">{query.answer}</div>
               </div>
             ))}
           </div>
