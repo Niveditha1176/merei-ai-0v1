@@ -16,11 +16,17 @@ const enTranslations = {
     "speakNow": "Speak now",
     "languages": "Languages",
     "cancel": "Cancel",
-    // Add English versions of the queries
+    // Soil status translations
     "soilStatusToday": "Soil status today",
     "soilDetails": "pH 6.2, Nitrogen low",
     "whenToWater": "When to water?",
-    "waterAnswer": "Wait 2 days - rain coming"
+    "waterAnswer": "Wait 2 days - rain coming",
+    // Added tryAsking and example queries
+    "tryAsking": "Try asking",
+    "checkPests": "Check for pests in my crop",
+    "bestTimeWater": "What is the best time to water my field?",
+    "improveSoil": "How to improve soil fertility?",
+    "allRightsReserved": "All Rights Reserved"
   }
 };
 
@@ -42,11 +48,17 @@ i18n
             "speakNow": "ಈಗ ಮಾತನಾಡಿ",
             "languages": "ಭಾಷೆಗಳು",
             "cancel": "ರದ್ದುಮಾಡಿ",
-            // Add Kannada translations for recent queries
+            // Soil status translations
             "soilStatusToday": "ಇಂದಿನ ಮಣ್ಣಿನ ಸ್ಥಿತಿ",
             "soilDetails": "pH 6.2, ನೈಟ್ರೋಜನ್ ಕಡಿಮೆ",
             "whenToWater": "ಯಾವಾಗ ನೀರು ಹಾಕಬೇಕು?",
-            "waterAnswer": "2 ದಿನ ಕಾಯಿರಿ - ಮಳೆ ಬರುತ್ತಿದೆ"
+            "waterAnswer": "2 ದಿನ ಕಾಯಿರಿ - ಮಳೆ ಬರುತ್ತಿದೆ",
+            // Added tryAsking and example queries
+            "tryAsking": "ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ",
+            "checkPests": "ನನ್ನ ಬೆಳೆಯಲ್ಲಿ ಕೀಟಗಳನ್ನು ಪರಿಶೀಲಿಸಿ",
+            "bestTimeWater": "ನನ್ನ ಹೊಲಕ್ಕೆ ನೀರು ಹಾಕಲು ಉತ್ತಮ ಸಮಯ ಯಾವುದು?",
+            "improveSoil": "ಮಣ್ಣಿನ ಫಲವತ್ತತೆಯನ್ನು ಹೇಗೆ ಸುಧಾರಿಸುವುದು?",
+            "allRightsReserved": "ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ"
           }
         }
       },
@@ -59,11 +71,17 @@ i18n
             "speakNow": "ఇప్పుడు మాట్లాడండి",
             "languages": "భాషలు",
             "cancel": "రద్దు",
-            // Add Telugu translations for recent queries
+            // Soil status translations
             "soilStatusToday": "నేటి మట్టి స్థితి",
             "soilDetails": "pH 6.2, నత్రజని తక్కువ",
             "whenToWater": "నీరు ఎప్పుడు పోయాలి?",
-            "waterAnswer": "2 రోజులు వేచి ఉండండి - వర్షం రాబోతోంది"
+            "waterAnswer": "2 రోజులు వేచి ఉండండి - వర్షం రాబోతోంది",
+            // Added tryAsking and example queries
+            "tryAsking": "ఇలా అడగండి",
+            "checkPests": "నా పంటలో పురుగులను తనిఖీ చేయండి",
+            "bestTimeWater": "నా పొలానికి నీరు పెట్టడానికి ఉత్తమ సమయం ఏది?",
+            "improveSoil": "మట్టి సారాన్ని ఎలా మెరుగుపరచాలి?",
+            "allRightsReserved": "అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి"
           }
         }
       },
@@ -76,11 +94,17 @@ i18n
             "speakNow": "இப்போது பேசவும்",
             "languages": "மொழிகள்",
             "cancel": "ரத்து செய்",
-            // Add Tamil translations for recent queries
+            // Soil status translations
             "soilStatusToday": "இன்றைய மண் நிலை",
             "soilDetails": "pH 6.2, நைட்ரஜன் குறைவு",
             "whenToWater": "எப்போது தண்ணீர் பாய்ச்ச வேண்டும்?",
-            "waterAnswer": "2 நாட்கள் காத்திருங்கள் - மழை வருகிறது"
+            "waterAnswer": "2 நாட்கள் காத்திருங்கள் - மழை வருகிறது",
+            // Added tryAsking and example queries
+            "tryAsking": "இதை முயற்சிக்கவும்",
+            "checkPests": "எனது பயிரில் பூச்சிகளை சரிபார்க்கவும்",
+            "bestTimeWater": "என் வயலுக்கு தண்ணீர் பாய்ச்ச சிறந்த நேரம் எது?",
+            "improveSoil": "மண் வளத்தை எப்படி மேம்படுத்துவது?",
+            "allRightsReserved": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை"
           }
         }
       }

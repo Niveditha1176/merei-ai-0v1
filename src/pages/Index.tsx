@@ -38,9 +38,9 @@ const Index = () => {
   };
 
   const exampleQueries = [
-    { text: 'Check for pests in my crop', icon: '🐛' },
-    { text: 'What is the best time to water my field?', icon: '💧' },
-    { text: 'How to improve soil fertility?', icon: '🌱' }
+    { text: t('common.checkPests'), icon: '🐛' },
+    { text: t('common.bestTimeWater'), icon: '💧' },
+    { text: t('common.improveSoil'), icon: '🌱' }
   ];
 
   return (
