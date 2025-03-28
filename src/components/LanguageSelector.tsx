@@ -15,7 +15,7 @@ interface LanguageSelectorProps {
 }
 
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onChange, value }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   
   const languages = [
     { code: 'en', name: 'English' },
@@ -26,13 +26,14 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onChange, value }) 
   ];
 
   const handleLanguageChange = (langCode: string) => {
+    console.log("Changing language to:", langCode);
     onChange(langCode);
   };
 
   return (
     <Select value={value} onValueChange={handleLanguageChange}>
       <SelectTrigger className="w-full">
-        <SelectValue placeholder="Select language" />
+        <SelectValue placeholder={t('common.languages')} />
       </SelectTrigger>
       <SelectContent>
         {languages.map((lang) => (

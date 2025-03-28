@@ -1,6 +1,6 @@
 
 export default {
-  "common": {
+  common: {
     "askAbout": "मिट्टी, मौसम, या कीड़े के बारे में पूछें",
     "recentQueries": "हाल ही की पूछताछ",
     "listening": "सुन रहा हूँ",

@@ -19,8 +19,10 @@ const Index = () => {
     const savedLanguage = localStorage.getItem('i18nextLng');
     if (savedLanguage) {
       i18n.changeLanguage(savedLanguage);
-      setLanguage(savedLanguage); // Update app context language as well
+      setLanguage(savedLanguage);
     }
+    console.log("Current language:", i18n.language);
+    console.log("Translation test:", t('common.askAbout'));
   }, [i18n, setLanguage]);
 
   const handleMicClick = () => {
@@ -42,9 +44,8 @@ const Index = () => {
           <LanguageSelector onChange={(lang) => {
             setLanguage(lang);
             i18n.changeLanguage(lang).then(() => {
-              // Store the language in localStorage for persistence
               localStorage.setItem('i18nextLng', lang);
-              // Force reload to apply translations immediately
+              console.log("Language changed to:", lang);
               window.location.reload();
             });
           }} value={language} />
