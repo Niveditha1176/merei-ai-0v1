@@ -129,7 +129,7 @@ const Index = () => {
       
       {/* Footer */}
       <footer className="text-center p-4 text-xs text-gray-400">
-        © 2023 MEREI • {t('common.allRightsReserved')}
+        © 2025 MEREI.ai • {t('common.allRightsReserved')}
       </footer>
     </div>
   );
