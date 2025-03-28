@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Logo from '@/components/Logo';
@@ -8,12 +8,15 @@ import { useToast } from '@/components/ui/use-toast';
 import { useApp } from '@/contexts/AppContext';
 import { HelpCircle, History, Mic } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import DialogResponse from '@/components/DialogResponse';
 
 const Index = () => {
   const { language, recentQueries, setCurrentQuery, addQuery, setLanguage } = useApp();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedQuery, setSelectedQuery] = useState('');
 
   // Update the current language from localStorage if available
   useEffect(() => {
@@ -35,6 +38,18 @@ const Index = () => {
     
     // Navigate to the listening page
     navigate('/listening');
+  };
+
+  const handleQueryClick = (query: string) => {
+    setSelectedQuery(query);
+    setCurrentQuery(query);
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+    // Add to recent queries when dialog closes
+    addQuery(selectedQuery, "Response provided for: " + selectedQuery);
   };
 
   const exampleQueries = [
@@ -70,10 +85,7 @@ const Index = () => {
               <button 
                 key={index} 
                 className="text-left bg-white hover:bg-primary/5 p-3 rounded-lg border border-gray-200 transition-colors flex items-center gap-2"
-                onClick={() => {
-                  setCurrentQuery(query.text);
-                  navigate('/response');
-                }}
+                onClick={() => handleQueryClick(query.text)}
               >
                 <span className="text-xl">{query.icon}</span>
                 <span className="text-gray-700">{query.text}</span>
@@ -91,7 +103,11 @@ const Index = () => {
               
               <div className="space-y-2">
                 {recentQueries.map((query) => (
-                  <Card key={query.id} className="overflow-hidden hover:border-primary/50 transition-colors">
+                  <Card 
+                    key={query.id} 
+                    className="overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+                    onClick={() => handleQueryClick(query.question)}
+                  >
                     <CardContent className="p-3">
                       <div className="text-sm font-medium">{query.question}</div>
                       <div className="text-xs text-gray-500 mt-1 line-clamp-1">{query.answer}</div>
@@ -103,6 +119,13 @@ const Index = () => {
           )}
         </div>
       </main>
+      
+      {/* Dialog Response */}
+      <DialogResponse 
+        isOpen={dialogOpen} 
+        onClose={handleDialogClose} 
+        query={selectedQuery} 
+      />
       
       {/* Footer */}
       <footer className="text-center p-4 text-xs text-gray-400">
