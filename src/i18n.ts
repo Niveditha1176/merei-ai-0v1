@@ -33,20 +33,20 @@ i18n
     resources: {
       en: { translation: enTranslations },
       hi: { translation: hiTranslations },
-      pa: {
+      kn: {
         translation: {
           common: {
-            "askAbout": "ਮਿੱਟੀ, ਮੌਸਮ, ਜਾਂ ਕੀੜਿਆਂ ਬਾਰੇ ਪੁੱਛੋ",
-            "recentQueries": "ਹਾਲੀਆ ਪ੍ਰਸ਼ਨ",
-            "listening": "ਸੁਣ ਰਿਹਾ ਹੈ",
-            "speakNow": "ਹੁਣ ਬੋਲੋ",
-            "languages": "ਭਾਸ਼ਾਵਾਂ",
-            "cancel": "ਰੱਦ ਕਰੋ",
-            // Add Punjabi translations for recent queries
-            "soilStatusToday": "ਅੱਜ ਦੀ ਮਿੱਟੀ ਦੀ ਸਥਿਤੀ",
-            "soilDetails": "pH 6.2, ਨਾਈਟ੍ਰੋਜਨ ਘੱਟ",
-            "whenToWater": "ਪਾਣੀ ਕਦੋਂ ਦੇਣਾ ਹੈ?",
-            "waterAnswer": "2 ਦਿਨ ਉਡੀਕ ਕਰੋ - ਮੀਂਹ ਆ ਰਿਹਾ ਹੈ"
+            "askAbout": "ಮಣ್ಣು, ಹವಾಮಾನ, ಅಥವಾ ಕೀಟಗಳ ಬಗ್ಗೆ ಕೇಳಿ",
+            "recentQueries": "ಇತ್ತೀಚಿನ ಪ್ರಶ್ನೆಗಳು",
+            "listening": "ಆಲಿಸುತ್ತಿದ್ದೇನೆ",
+            "speakNow": "ಈಗ ಮಾತನಾಡಿ",
+            "languages": "ಭಾಷೆಗಳು",
+            "cancel": "ರದ್ದುಮಾಡಿ",
+            // Add Kannada translations for recent queries
+            "soilStatusToday": "ಇಂದಿನ ಮಣ್ಣಿನ ಸ್ಥಿತಿ",
+            "soilDetails": "pH 6.2, ನೈಟ್ರೋಜನ್ ಕಡಿಮೆ",
+            "whenToWater": "ಯಾವಾಗ ನೀರು ಹಾಕಬೇಕು?",
+            "waterAnswer": "2 ದಿನ ಕಾಯಿರಿ - ಮಳೆ ಬರುತ್ತಿದೆ"
           }
         }
       },

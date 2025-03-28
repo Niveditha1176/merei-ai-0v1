@@ -20,7 +20,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onChange, value }) 
   const languages = [
     { code: 'en', name: 'English' },
     { code: 'hi', name: 'Hindi' },
-    { code: 'pa', name: 'Punjabi' },
+    { code: 'kn', name: 'Kannada' },
     { code: 'te', name: 'Telugu' },
     { code: 'ta', name: 'Tamil' },
   ];
