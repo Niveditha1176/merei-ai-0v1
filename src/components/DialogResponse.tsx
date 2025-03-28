@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from 'react-i18next';
 import ResponseCard from '@/components/ResponseCard';
 import { Cloud, Leaf, Sprout } from 'lucide-react';
+import { useApp } from '@/contexts/AppContext';
 
 interface DialogResponseProps {
   isOpen: boolean;
@@ -20,6 +21,7 @@ interface DialogResponseProps {
 
 const DialogResponse: React.FC<DialogResponseProps> = ({ isOpen, onClose, query }) => {
   const { t } = useTranslation();
+  const { theme } = useApp();
   
   // Generate dummy response data based on the query
   const getDummyResponse = () => {
@@ -78,7 +80,7 @@ const DialogResponse: React.FC<DialogResponseProps> = ({ isOpen, onClose, query 
   
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className={`sm:max-w-md ${theme === 'dark' ? 'bg-slate-800 border-gray-700 text-white' : ''}`}>
         <DialogHeader>
           <DialogTitle className="text-center">{response.title}</DialogTitle>
         </DialogHeader>
@@ -91,7 +93,7 @@ const DialogResponse: React.FC<DialogResponseProps> = ({ isOpen, onClose, query 
               icon={card.icon} 
               delayIndex={index}
             >
-              <p className="text-gray-600 text-sm">{card.content}</p>
+              <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{card.content}</p>
             </ResponseCard>
           ))}
         </div>

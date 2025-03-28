@@ -9,9 +9,10 @@ import { useApp } from '@/contexts/AppContext';
 import { HelpCircle, History, Mic } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import DialogResponse from '@/components/DialogResponse';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const Index = () => {
-  const { language, recentQueries, setCurrentQuery, addQuery, setLanguage } = useApp();
+  const { language, recentQueries, setCurrentQuery, addQuery, setLanguage, theme } = useApp();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
@@ -59,12 +60,17 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 flex flex-col">
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-slate-900 to-slate-800 text-white' : 'bg-gradient-to-b from-slate-50 to-slate-100'} flex flex-col`}>
+      {/* Theme Switcher - positioned top right */}
+      <div className="absolute top-4 right-4 z-10">
+        <ThemeSwitcher />
+      </div>
+      
       {/* Main content */}
       <main className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-md mx-auto text-center mb-8">
           <h1 className="text-3xl font-bold text-primary mb-2">MEREI</h1>
-          <p className="text-gray-600">
+          <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
             {t('common.askAbout')}
           </p>
         </div>
@@ -75,7 +81,7 @@ const Index = () => {
         
         {/* Example queries */}
         <div className="w-full max-w-md">
-          <h3 className="text-sm font-medium mb-3 text-gray-500 flex items-center gap-1.5">
+          <h3 className={`text-sm font-medium mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} flex items-center gap-1.5`}>
             <HelpCircle size={14} />
             {t('common.tryAsking')}
           </h3>
@@ -84,11 +90,11 @@ const Index = () => {
             {exampleQueries.map((query, index) => (
               <button 
                 key={index} 
-                className="text-left bg-white hover:bg-primary/5 p-3 rounded-lg border border-gray-200 transition-colors flex items-center gap-2"
+                className={`text-left ${theme === 'dark' ? 'bg-slate-800 hover:bg-primary/20 border-gray-700' : 'bg-white hover:bg-primary/5 border-gray-200'} p-3 rounded-lg border transition-colors flex items-center gap-2`}
                 onClick={() => handleQueryClick(query.text)}
               >
                 <span className="text-xl">{query.icon}</span>
-                <span className="text-gray-700">{query.text}</span>
+                <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>{query.text}</span>
               </button>
             ))}
           </div>
@@ -96,7 +102,7 @@ const Index = () => {
           {/* Recent queries */}
           {recentQueries.length > 0 && (
             <>
-              <h3 className="text-sm font-medium mb-3 text-gray-500 flex items-center gap-1.5">
+              <h3 className={`text-sm font-medium mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} flex items-center gap-1.5`}>
                 <History size={14} />
                 {t('common.recentQueries')}
               </h3>
@@ -105,12 +111,12 @@ const Index = () => {
                 {recentQueries.map((query) => (
                   <Card 
                     key={query.id} 
-                    className="overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+                    className={`overflow-hidden hover:border-primary/50 transition-colors cursor-pointer ${theme === 'dark' ? 'bg-slate-800 border-gray-700' : ''}`}
                     onClick={() => handleQueryClick(query.question)}
                   >
                     <CardContent className="p-3">
-                      <div className="text-sm font-medium">{query.question}</div>
-                      <div className="text-xs text-gray-500 mt-1 line-clamp-1">{query.answer}</div>
+                      <div className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : ''}`}>{query.question}</div>
+                      <div className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-1 line-clamp-1`}>{query.answer}</div>
                     </CardContent>
                   </Card>
                 ))}
@@ -128,7 +134,7 @@ const Index = () => {
       />
       
       {/* Footer */}
-      <footer className="text-center p-4 text-xs text-gray-400">
+      <footer className={`text-center p-4 text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
         © 2025 MEREI.ai • {t('common.allRightsReserved')}
       </footer>
     </div>

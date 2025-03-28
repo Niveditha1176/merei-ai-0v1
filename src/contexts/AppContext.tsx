@@ -20,6 +20,8 @@ interface AppContextType {
   addQuery: (question: string, answer: string) => void;
   onboardingComplete: boolean;
   completeOnboarding: () => void;
+  theme: string;
+  setTheme: (theme: string) => void;
 }
 
 // Create the context with a default value
@@ -36,6 +38,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [currentQuery, setCurrentQuery] = useState('');
   const [recentQueries, setRecentQueries] = useState<Query[]>([]);
   const [onboardingComplete, setOnboardingComplete] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme || 'light';
+  });
   const { t, i18n } = useTranslation();
 
   // Sync language with i18n when it changes
@@ -43,6 +49,15 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     i18n.changeLanguage(language);
     localStorage.setItem('i18nextLng', language);
   }, [language, i18n]);
+
+  // Apply theme when component mounts or theme changes
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
 
   // Update recent queries when language changes
   useEffect(() => {
@@ -86,7 +101,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         recentQueries,
         addQuery,
         onboardingComplete,
-        completeOnboarding
+        completeOnboarding,
+        theme,
+        setTheme
       }}
     >
       {children}
