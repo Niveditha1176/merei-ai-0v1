@@ -14,6 +14,7 @@ const MicButton: React.FC<MicButtonProps> = ({ isListening, onClick }) => {
       <button 
         onClick={onClick} 
         className={`mic-button ${isListening ? 'mic-button-active' : ''}`}
+        aria-label={isListening ? "Stop listening" : "Start listening"}
       >
         <Mic size={32} />
       </button>
