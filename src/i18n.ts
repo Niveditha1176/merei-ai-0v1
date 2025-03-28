@@ -15,7 +15,12 @@ const enTranslations = {
     "listening": "Listening",
     "speakNow": "Speak now",
     "languages": "Languages",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    // Add English versions of the queries
+    "soilStatusToday": "Soil status today",
+    "soilDetails": "pH 6.2, Nitrogen low",
+    "whenToWater": "When to water?",
+    "waterAnswer": "Wait 2 days - rain coming"
   }
 };
 
