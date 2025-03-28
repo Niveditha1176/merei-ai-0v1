@@ -8,12 +8,14 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { AppProvider } from "./contexts/AppContext";
 import AppLayout from "./components/AppLayout";
-import Listening from "./pages/Listening";  // Import the Listening page
-
-// Create a new QueryClient instance outside of component render
-const queryClient = new QueryClient();
+import Listening from "./pages/Listening";
+import React from "react";
 
 const App = () => {
+  // Create a new QueryClient instance inside the component
+  // This ensures that it's properly initialized with the React lifecycle
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
     <QueryClientProvider client={queryClient}>
       <AppProvider>
