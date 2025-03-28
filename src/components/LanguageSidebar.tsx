@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Globe } from 'lucide-react';
+import { Globe, Check } from 'lucide-react';
 
 const LanguageSidebar = () => {
   const { language, setLanguage } = useApp();
@@ -37,33 +37,62 @@ const LanguageSidebar = () => {
   };
 
   return (
-    <div className="bg-white p-4 border-r border-gray-200 h-full">
-      <h2 className="font-medium flex items-center gap-2 mb-4">
-        <Globe size={18} />
-        {t('common.languages')}
-      </h2>
+    <div className="h-full flex flex-col">
+      {/* Header with logo */}
+      <div className="p-4 border-b border-gray-100">
+        <div className="flex items-center gap-2">
+          <div className="relative w-8 h-8">
+            {/* Logo elements from Logo component */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-4 bg-primary rounded"></div>
+            <div className="absolute bottom-2 left-1.5 w-3 h-4 bg-primary rounded-tl-full rounded-tr-none rounded-bl-none rounded-br-full transform -rotate-45"></div>
+            <div className="absolute bottom-2 right-1.5 w-3 h-4 bg-primary rounded-tl-none rounded-tr-full rounded-bl-full rounded-br-none transform rotate-45"></div>
+          </div>
+          <span className="font-bold text-lg text-primary">MEREI</span>
+        </div>
+      </div>
       
-      <Accordion type="single" collapsible className="w-full" defaultValue="languages">
-        <AccordionItem value="languages">
-          <AccordionTrigger className="text-sm">{t('common.languages')}</AccordionTrigger>
-          <AccordionContent>
-            <div className="space-y-1 pt-1">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => handleLanguageChange(lang.code)}
-                  className={`w-full text-left px-2 py-1.5 text-sm rounded-md transition-colors ${
-                    language === lang.code ? 'bg-primary text-primary-foreground' : 'hover:bg-slate-100'
-                  }`}
-                >
-                  <span>{lang.name}</span>
-                  <span className="ml-2 text-xs opacity-70">{lang.native}</span>
-                </button>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      <div className="p-4 flex-1 overflow-y-auto">
+        <h2 className="font-medium flex items-center gap-2 mb-4">
+          <Globe size={18} className="text-primary" />
+          {t('common.languages')}
+        </h2>
+        
+        <Accordion type="single" collapsible className="w-full" defaultValue="languages">
+          <AccordionItem value="languages" className="border-none">
+            <AccordionTrigger className="text-sm py-2 hover:no-underline">
+              {t('common.languages')}
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="space-y-1 pt-1">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => handleLanguageChange(lang.code)}
+                    className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded-md transition-colors ${
+                      language === lang.code 
+                        ? 'bg-primary/10 text-primary font-medium' 
+                        : 'hover:bg-slate-100'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span>{lang.name}</span>
+                      <span className="text-xs opacity-70">{lang.native}</span>
+                    </div>
+                    {language === lang.code && (
+                      <Check size={16} className="text-primary" />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+      
+      {/* Footer with version */}
+      <div className="p-4 text-xs text-gray-400 border-t border-gray-100">
+        MEREI v1.0
+      </div>
     </div>
   );
 };

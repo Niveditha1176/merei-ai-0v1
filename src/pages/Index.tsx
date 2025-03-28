@@ -6,7 +6,8 @@ import Logo from '@/components/Logo';
 import MicButton from '@/components/MicButton';
 import { useToast } from '@/components/ui/use-toast';
 import { useApp } from '@/contexts/AppContext';
-import LanguageSelector from '@/components/LanguageSelector';
+import { HelpCircle, History, Mic } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Index = () => {
   const { language, recentQueries, setCurrentQuery, addQuery, setLanguage } = useApp();
@@ -36,43 +37,77 @@ const Index = () => {
     navigate('/listening');
   };
 
+  const exampleQueries = [
+    { text: 'Check for pests in my crop', icon: '🐛' },
+    { text: 'What is the best time to water my field?', icon: '💧' },
+    { text: 'How to improve soil fertility?', icon: '🌱' }
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <header className="p-4 flex items-center justify-between">
-        <Logo />
-        <div className="w-32">
-          <LanguageSelector onChange={(lang) => {
-            setLanguage(lang);
-            i18n.changeLanguage(lang).then(() => {
-              localStorage.setItem('i18nextLng', lang);
-              console.log("Language changed to:", lang);
-              window.location.reload();
-            });
-          }} value={language} />
-        </div>
-      </header>
-      
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 flex flex-col">
+      {/* Main content */}
       <main className="flex-1 flex flex-col items-center justify-center p-6">
-        <MicButton isListening={false} onClick={handleMicClick} />
+        <div className="w-full max-w-md mx-auto text-center mb-8">
+          <h1 className="text-3xl font-bold text-primary mb-2">MEREI</h1>
+          <p className="text-gray-600">
+            {t('common.askAbout')}
+          </p>
+        </div>
         
-        <p className="text-center mt-6 text-gray-600">
-          {t('common.askAbout')}
-        </p>
+        <div className="mb-12">
+          <MicButton isListening={false} onClick={handleMicClick} />
+        </div>
         
-        <div className="w-full max-w-md mt-8">
-          <h3 className="text-sm font-medium mb-2 text-gray-500">
-            {t('common.recentQueries')}
+        {/* Example queries */}
+        <div className="w-full max-w-md">
+          <h3 className="text-sm font-medium mb-3 text-gray-500 flex items-center gap-1.5">
+            <HelpCircle size={14} />
+            {t('common.tryAsking')}
           </h3>
-          <div className="space-y-2">
-            {recentQueries.map((query) => (
-              <div key={query.id} className="bg-white p-3 rounded-lg shadow-sm">
-                <div>{query.question}</div>
-                <div className="text-sm text-gray-500 mt-1">{query.answer}</div>
-              </div>
+          
+          <div className="grid grid-cols-1 gap-2 mb-8">
+            {exampleQueries.map((query, index) => (
+              <button 
+                key={index} 
+                className="text-left bg-white hover:bg-primary/5 p-3 rounded-lg border border-gray-200 transition-colors flex items-center gap-2"
+                onClick={() => {
+                  setCurrentQuery(query.text);
+                  navigate('/response');
+                }}
+              >
+                <span className="text-xl">{query.icon}</span>
+                <span className="text-gray-700">{query.text}</span>
+              </button>
             ))}
           </div>
+          
+          {/* Recent queries */}
+          {recentQueries.length > 0 && (
+            <>
+              <h3 className="text-sm font-medium mb-3 text-gray-500 flex items-center gap-1.5">
+                <History size={14} />
+                {t('common.recentQueries')}
+              </h3>
+              
+              <div className="space-y-2">
+                {recentQueries.map((query) => (
+                  <Card key={query.id} className="overflow-hidden hover:border-primary/50 transition-colors">
+                    <CardContent className="p-3">
+                      <div className="text-sm font-medium">{query.question}</div>
+                      <div className="text-xs text-gray-500 mt-1 line-clamp-1">{query.answer}</div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </main>
+      
+      {/* Footer */}
+      <footer className="text-center p-4 text-xs text-gray-400">
+        © 2023 MEREI • {t('common.allRightsReserved')}
+      </footer>
     </div>
   );
 };
