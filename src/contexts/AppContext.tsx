@@ -1,5 +1,6 @@
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Define the types for our context
 interface Query {
@@ -26,7 +27,11 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 // Create a provider component
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState('en');
+  // Initialize language from localStorage or default to 'en'
+  const [language, setLanguage] = useState(() => {
+    const savedLanguage = localStorage.getItem('i18nextLng');
+    return savedLanguage || 'en';
+  });
   const [isListening, setIsListening] = useState(false);
   const [currentQuery, setCurrentQuery] = useState('');
   const [recentQueries, setRecentQueries] = useState<Query[]>([
@@ -34,6 +39,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     { id: '2', question: 'When to water?', answer: 'Wait 2 days - rain coming' }
   ]);
   const [onboardingComplete, setOnboardingComplete] = useState(false);
+  const { i18n } = useTranslation();
+
+  // Sync language with i18n when it changes
+  useEffect(() => {
+    i18n.changeLanguage(language);
+    localStorage.setItem('i18nextLng', language);
+  }, [language, i18n]);
 
   const addQuery = (question: string, answer: string) => {
     const newQuery = {

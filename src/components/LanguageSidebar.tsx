@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useApp } from '@/contexts/AppContext';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   Accordion,
@@ -13,7 +12,6 @@ import { Globe } from 'lucide-react';
 
 const LanguageSidebar = () => {
   const { language, setLanguage } = useApp();
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
   const languages = [
@@ -30,10 +28,10 @@ const LanguageSidebar = () => {
     
     // Change the i18next language
     i18n.changeLanguage(langCode).then(() => {
-      // Store the language in localStorage
+      // Store the language in localStorage for persistence
       localStorage.setItem('i18nextLng', langCode);
       
-      // Refresh the current page to apply changes
+      // Reload the page to ensure all components are re-rendered with the new language
       window.location.reload();
     });
   };
