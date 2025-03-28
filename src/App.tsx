@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 import { AppProvider } from "./contexts/AppContext";
 import AppLayout from "./components/AppLayout";
 import Listening from "./pages/Listening";
-import React from "react";
+import * as React from "react";  // Changed to import all of React as a namespace
 
 const App = () => {
   // Create a new QueryClient instance inside the component
