@@ -4,25 +4,32 @@ import { useNavigate } from 'react-router-dom';
 import { Mic, X } from 'lucide-react';
 import { useApp } from '@/contexts/AppContext';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 const Listening: React.FC = () => {
   const { setIsListening, setCurrentQuery } = useApp();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   
   // Simulated listening with animation
   useEffect(() => {
+    setIsListening(true);
+    
     const timer = setTimeout(() => {
       setCurrentQuery('Check for pests in my cotton field');
       setIsListening(false);
-      navigate('/response');
+      navigate('/');
     }, 5000);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      setIsListening(false);
+    };
   }, [navigate, setCurrentQuery, setIsListening]);
   
   const handleCancel = () => {
     setIsListening(false);
-    navigate('/home');
+    navigate('/');
   };
   
   return (
@@ -38,7 +45,7 @@ const Listening: React.FC = () => {
       </div>
       
       <h1 className="text-2xl font-medium mb-8">
-        Listening... Speak now
+        {t('common.listening')}... {t('common.speakNow')}
       </h1>
       
       <Button 
@@ -47,7 +54,7 @@ const Listening: React.FC = () => {
         onClick={handleCancel}
       >
         <X size={16} />
-        Cancel
+        {t('common.cancel')}
       </Button>
     </div>
   );

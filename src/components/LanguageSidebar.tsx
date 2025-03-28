@@ -33,8 +33,8 @@ const LanguageSidebar = () => {
       // Store the language in localStorage
       localStorage.setItem('i18nextLng', langCode);
       
-      // Refresh the page to apply changes
-      window.location.href = '/';
+      // Refresh the current page to apply changes
+      window.location.reload();
     });
   };
 
