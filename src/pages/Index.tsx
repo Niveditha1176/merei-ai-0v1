@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Logo from '@/components/Logo';
 import MicButton from '@/components/MicButton';
 import { useToast } from '@/components/ui/use-toast';
@@ -12,13 +13,14 @@ const Index = () => {
   const { language, recentQueries, setCurrentQuery, addQuery } = useApp();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleMicClick = () => {
     setIsListening(true);
     
     toast({
-      title: "Listening...",
-      description: "Speak now",
+      title: t('common.listening'),
+      description: t('common.speakNow'),
       duration: 2000,
     });
     
@@ -51,11 +53,11 @@ const Index = () => {
         <MicButton isListening={isListening} onClick={handleMicClick} />
         
         <p className="text-center mt-6 text-gray-600">
-          Ask about soil, weather, or pests
+          {t('common.askAbout')}
         </p>
         
         <div className="w-full max-w-md mt-8">
-          <h3 className="text-sm font-medium mb-2 text-gray-500">Recent queries</h3>
+          <h3 className="text-sm font-medium mb-2 text-gray-500">{t('common.recentQueries')}</h3>
           <div className="space-y-2">
             {recentQueries.map((query, index) => (
               <div key={query.id} className="bg-white p-3 rounded-lg shadow-sm">

@@ -2,6 +2,7 @@
 import React from 'react';
 import { useApp } from '@/contexts/AppContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Accordion,
   AccordionContent,
@@ -13,6 +14,7 @@ import { Globe } from 'lucide-react';
 const LanguageSidebar = () => {
   const { language, setLanguage } = useApp();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   const languages = [
     { code: 'en', name: 'English', native: 'English' },
@@ -23,20 +25,29 @@ const LanguageSidebar = () => {
   ];
 
   const handleLanguageChange = (langCode: string) => {
+    // Set the language in the app context
     setLanguage(langCode);
-    navigate('/');
+    
+    // Change the i18next language
+    i18n.changeLanguage(langCode).then(() => {
+      // Store the language in localStorage
+      localStorage.setItem('i18nextLng', langCode);
+      
+      // Refresh the page to apply changes
+      window.location.href = '/';
+    });
   };
 
   return (
     <div className="bg-white p-4 border-r border-gray-200 h-full">
       <h2 className="font-medium flex items-center gap-2 mb-4">
         <Globe size={18} />
-        Languages
+        {t('common.languages')}
       </h2>
       
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-full" defaultValue="languages">
         <AccordionItem value="languages">
-          <AccordionTrigger className="text-sm">Available Languages</AccordionTrigger>
+          <AccordionTrigger className="text-sm">{t('common.languages')}</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-1 pt-1">
               {languages.map((lang) => (
