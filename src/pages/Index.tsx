@@ -38,7 +38,11 @@ const Index = () => {
       <header className="p-4 flex items-center justify-between">
         <Logo />
         <div className="w-32">
-          <LanguageSelector onChange={(lang) => useApp().setLanguage(lang)} value={language} />
+          <LanguageSelector onChange={(lang) => {
+            useApp().setLanguage(lang);
+            // Force reload to apply translations immediately
+            window.location.reload();
+          }} value={language} />
         </div>
       </header>
       
