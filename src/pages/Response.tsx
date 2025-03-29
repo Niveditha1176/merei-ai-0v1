@@ -10,7 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 const Response: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { currentQuery } = useApp();
+  const { currentQuery, theme } = useApp();
   
   const [isGenerating, setIsGenerating] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -58,7 +58,7 @@ const Response: React.FC = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 dark:text-white flex flex-col">
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-slate-900 to-slate-800 dark:text-white' : 'bg-gradient-to-b from-slate-50 to-slate-100'} flex flex-col`}>
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <Button 
@@ -111,13 +111,13 @@ const Response: React.FC = () => {
               </div>
             </div>
             <p className="text-lg font-medium">Analyzing your input</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+            <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-2`}>
               {t('pleaseWait')}
             </p>
           </div>
         ) : (
           <div className="w-full max-w-md">
-            <Card className="mb-8 shadow-md dark:bg-slate-800 dark:border-gray-700">
+            <Card className={`mb-8 shadow-md ${theme === 'dark' ? 'bg-slate-800 border-gray-700' : ''}`}>
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-lg font-medium">
@@ -133,7 +133,7 @@ const Response: React.FC = () => {
                   </Button>
                 </div>
                 
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
                   {response}
                 </p>
                 

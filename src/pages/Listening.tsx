@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 
 const Listening: React.FC = () => {
-  const { setIsListening, setCurrentQuery } = useApp();
+  const { setIsListening, setCurrentQuery, theme } = useApp();
   const navigate = useNavigate();
   const { t } = useTranslation();
   
@@ -33,7 +33,7 @@ const Listening: React.FC = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 flex flex-col items-center justify-center p-6">
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-slate-900 to-slate-800 text-white' : 'bg-gradient-to-b from-slate-50 to-slate-100'} flex flex-col items-center justify-center p-6`}>
       <div className="relative mb-10">
         {/* Multiple animated rings */}
         <div className="absolute inset-0 scale-150 rounded-full border border-primary animate-ping opacity-10"></div>
@@ -47,10 +47,10 @@ const Listening: React.FC = () => {
       
       <div className="text-center mb-4">
         <h1 className="text-2xl font-medium mb-2">
-          {t('common.listening')}...
+          {t('listening')}...
         </h1>
-        <p className="text-gray-600 mb-4">
-          {t('common.speakNow')}
+        <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+          {t('speakNow')}
         </p>
         
         {/* Wave ripple visualization replacing the mic icon */}
@@ -71,8 +71,8 @@ const Listening: React.FC = () => {
       </div>
       
       <div className="text-center max-w-sm">
-        <p className="text-sm text-gray-500 mb-6">
-          {t('common.speakClearly')}
+        <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mb-6`}>
+          {t('speakClearly')}
         </p>
         
         <Button 
@@ -81,7 +81,7 @@ const Listening: React.FC = () => {
           onClick={handleCancel}
         >
           <X size={16} />
-          {t('common.cancel')}
+          {t('cancel')}
         </Button>
       </div>
     </div>
