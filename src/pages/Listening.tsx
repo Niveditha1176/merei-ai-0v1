@@ -45,13 +45,22 @@ const Listening: React.FC = () => {
         </div>
       </div>
       
-      <div className="text-center mb-10">
+      <div className="text-center mb-4">
         <h1 className="text-2xl font-medium mb-2">
           {t('common.listening')}...
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 mb-4">
           {t('common.speakNow')}
         </p>
+        
+        {/* Added microphone icon image below the "Speak now" text */}
+        <div className="w-14 h-14 mx-auto mb-6">
+          <img 
+            src="/lovable-uploads/62d6fcbd-d852-4ba8-9353-285a2e71dd3b.png" 
+            alt="Microphone" 
+            className="w-full h-full object-contain"
+          />
+        </div>
       </div>
       
       <div className="text-center max-w-sm">
