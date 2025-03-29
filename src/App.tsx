@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import { AppProvider } from "./contexts/AppContext";
 import AppLayout from "./components/AppLayout";
 import Listening from "./pages/Listening";
+import Response from "./pages/Response";
 
 const App = () => {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -26,6 +27,7 @@ const App = () => {
                 <Route path="/" element={<AppLayout />}>
                   <Route index element={<Index />} />
                   <Route path="listening" element={<Listening />} />
+                  <Route path="response" element={<Response />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>

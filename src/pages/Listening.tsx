@@ -18,7 +18,7 @@ const Listening: React.FC = () => {
     const timer = setTimeout(() => {
       setCurrentQuery('Check for pests in my cotton field');
       setIsListening(false);
-      navigate('/');
+      navigate('/response');
     }, 5000);
     
     return () => {
