@@ -114,5 +114,21 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		function({ addUtilities }: { addUtilities: Function }) {
+			const newUtilities = {
+				'.animation-delay-300': {
+					'animation-delay': '300ms',
+				},
+				'.animation-delay-600': {
+					'animation-delay': '600ms',
+				},
+				'.animation-delay-900': {
+					'animation-delay': '900ms',
+				},
+			};
+			addUtilities(newUtilities);
+		},
+	],
 } satisfies Config;

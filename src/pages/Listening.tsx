@@ -53,13 +53,19 @@ const Listening: React.FC = () => {
           {t('common.speakNow')}
         </p>
         
-        {/* Added microphone icon image below the "Speak now" text */}
-        <div className="w-14 h-14 mx-auto mb-6">
-          <img 
-            src="/lovable-uploads/62d6fcbd-d852-4ba8-9353-285a2e71dd3b.png" 
-            alt="Microphone" 
-            className="w-full h-full object-contain"
-          />
+        {/* Ripple effect visualization */}
+        <div className="relative w-16 h-16 mx-auto mb-6">
+          {/* Base icon */}
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <Mic size={32} className="text-primary" />
+          </div>
+          
+          {/* Ripple circles */}
+          <div className="absolute inset-0 rounded-full border border-primary opacity-30 animate-ping"></div>
+          <div className="absolute inset-1 rounded-full border border-primary opacity-40 animate-ping animation-delay-300"></div>
+          <div className="absolute inset-2 rounded-full border border-primary opacity-50 animate-ping animation-delay-600"></div>
+          <div className="absolute inset-3 rounded-full border border-primary opacity-60 animate-ping animation-delay-900"></div>
+          <div className="absolute inset-4 rounded-full border border-primary opacity-70 animate-pulse"></div>
         </div>
       </div>
       
