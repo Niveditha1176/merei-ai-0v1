@@ -110,7 +110,7 @@ const Response: React.FC = () => {
                 <div className="w-1.5 h-3 bg-primary rounded-full animate-wave"></div>
               </div>
             </div>
-            <p className="text-lg font-medium">{t('common.generating')}</p>
+            <p className="text-lg font-medium">Analyzing your input</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
               {t('common.pleaseWait')}
             </p>
