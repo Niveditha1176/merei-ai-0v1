@@ -53,19 +53,20 @@ const Listening: React.FC = () => {
           {t('common.speakNow')}
         </p>
         
-        {/* Ripple effect visualization */}
-        <div className="relative w-16 h-16 mx-auto mb-6">
-          {/* Base icon */}
-          <div className="absolute inset-0 flex items-center justify-center z-10">
-            <Mic size={32} className="text-primary" />
+        {/* Wave ripple visualization replacing the mic icon */}
+        <div className="relative w-20 h-16 mx-auto mb-6">
+          {/* Wave animations with different heights and phases */}
+          <div className="flex items-end justify-center h-full gap-1">
+            <div className="w-1.5 h-3 bg-primary rounded-full animate-wave"></div>
+            <div className="w-1.5 h-4 bg-primary rounded-full animate-wave animation-delay-300"></div>
+            <div className="w-1.5 h-6 bg-primary rounded-full animate-wave animation-delay-600"></div>
+            <div className="w-1.5 h-8 bg-primary rounded-full animate-wave animation-delay-300"></div>
+            <div className="w-1.5 h-10 bg-primary rounded-full animate-wave"></div>
+            <div className="w-1.5 h-8 bg-primary rounded-full animate-wave animation-delay-300"></div>
+            <div className="w-1.5 h-6 bg-primary rounded-full animate-wave animation-delay-600"></div>
+            <div className="w-1.5 h-4 bg-primary rounded-full animate-wave animation-delay-300"></div>
+            <div className="w-1.5 h-3 bg-primary rounded-full animate-wave"></div>
           </div>
-          
-          {/* Ripple circles */}
-          <div className="absolute inset-0 rounded-full border border-primary opacity-30 animate-ping"></div>
-          <div className="absolute inset-1 rounded-full border border-primary opacity-40 animate-ping animation-delay-300"></div>
-          <div className="absolute inset-2 rounded-full border border-primary opacity-50 animate-ping animation-delay-600"></div>
-          <div className="absolute inset-3 rounded-full border border-primary opacity-60 animate-ping animation-delay-900"></div>
-          <div className="absolute inset-4 rounded-full border border-primary opacity-70 animate-pulse"></div>
         </div>
       </div>
       

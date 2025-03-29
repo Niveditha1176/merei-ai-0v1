@@ -83,9 +83,9 @@ export default {
 					'50%': { opacity: '0.5' }
 				},
 				'wave': {
-					'0%': { transform: 'scale(0.9)' },
-					'50%': { transform: 'scale(1.1)' },
-					'100%': { transform: 'scale(0.9)' }
+					'0%': { transform: 'scaleY(0.9)' },
+					'50%': { transform: 'scaleY(1.3)' },
+					'100%': { transform: 'scaleY(0.9)' }
 				},
 				'slide-up': {
 					'0%': { transform: 'translateY(20px)', opacity: '0' },
