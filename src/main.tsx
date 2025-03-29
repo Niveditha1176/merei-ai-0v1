@@ -13,11 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set language and then render the app
   const renderApp = () => {
     const root = ReactDOM.createRoot(document.getElementById('root')!);
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
+    root.render(<App />);
   };
 
   if (savedLanguage) {
