@@ -112,7 +112,7 @@ const Response: React.FC = () => {
             </div>
             <p className="text-lg font-medium">Analyzing your input</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-              {t('common.pleaseWait')}
+              {t('pleaseWait')}
             </p>
           </div>
         ) : (
@@ -121,7 +121,7 @@ const Response: React.FC = () => {
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-lg font-medium">
-                    {currentQuery || t('common.pestControl')}
+                    {currentQuery || t('pestControl')}
                   </h3>
                   <Button 
                     variant="ghost" 
@@ -163,7 +163,7 @@ const Response: React.FC = () => {
                 className="rounded-full px-6 py-3 flex items-center gap-2"
               >
                 {isListening ? <MicOff size={16} /> : <Mic size={16} />}
-                {isListening ? t('common.stopListening') : t('common.askAnother')}
+                {isListening ? t('stopListening') : t('askAnother')}
               </Button>
             </div>
           </div>
