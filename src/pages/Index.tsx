@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 import MicButton from '@/components/MicButton';
 import { useToast } from '@/components/ui/use-toast';
 import { useApp } from '@/contexts/AppContext';
-import { History } from 'lucide-react';
+import { History, Mic } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const { language, recentQueries, setLanguage, theme } = useApp();
@@ -42,6 +43,28 @@ const Index = () => {
       {/* Theme Switcher - positioned top right */}
       <div className="absolute top-4 right-4 z-10">
         <ThemeSwitcher />
+      </div>
+      
+      {/* Listening icon - positioned top left */}
+      <div className="absolute top-4 left-4 z-10">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => navigate('/listening')}
+          className="relative group"
+        >
+          <Mic className="h-5 w-5 text-primary" />
+          <span className="sr-only">Go to listening page</span>
+          
+          {/* Small wave animation on hover */}
+          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 flex items-end justify-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="w-0.5 h-1 bg-primary rounded-full animate-wave"></div>
+            <div className="w-0.5 h-1.5 bg-primary rounded-full animate-wave animation-delay-300"></div>
+            <div className="w-0.5 h-2 bg-primary rounded-full animate-wave animation-delay-600"></div>
+            <div className="w-0.5 h-1.5 bg-primary rounded-full animate-wave animation-delay-300"></div>
+            <div className="w-0.5 h-1 bg-primary rounded-full animate-wave"></div>
+          </div>
+        </Button>
       </div>
       
       {/* Main content */}
