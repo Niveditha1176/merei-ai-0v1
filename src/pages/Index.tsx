@@ -1,23 +1,19 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Logo from '@/components/Logo';
 import MicButton from '@/components/MicButton';
 import { useToast } from '@/components/ui/use-toast';
 import { useApp } from '@/contexts/AppContext';
-import { HelpCircle, History, Mic } from 'lucide-react';
+import { History } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import DialogResponse from '@/components/DialogResponse';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const Index = () => {
-  const { language, recentQueries, setCurrentQuery, addQuery, setLanguage, theme } = useApp();
+  const { language, recentQueries, setLanguage, theme } = useApp();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedQuery, setSelectedQuery] = useState('');
 
   // Update the current language from localStorage if available
   useEffect(() => {
@@ -41,24 +37,6 @@ const Index = () => {
     navigate('/listening');
   };
 
-  const handleQueryClick = (query: string) => {
-    setSelectedQuery(query);
-    setCurrentQuery(query);
-    setDialogOpen(true);
-  };
-
-  const handleDialogClose = () => {
-    setDialogOpen(false);
-    // Add to recent queries when dialog closes
-    addQuery(selectedQuery, "Response provided for: " + selectedQuery);
-  };
-
-  const exampleQueries = [
-    { text: t('common.checkPests'), icon: '🐛' },
-    { text: t('common.bestTimeWater'), icon: '💧' },
-    { text: t('common.improveSoil'), icon: '🌱' }
-  ];
-
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-slate-900 to-slate-800 text-white' : 'bg-gradient-to-b from-slate-50 to-slate-100'} flex flex-col`}>
       {/* Theme Switcher - positioned top right */}
@@ -79,59 +57,30 @@ const Index = () => {
           <MicButton isListening={false} onClick={handleMicClick} />
         </div>
         
-        {/* Example queries */}
-        <div className="w-full max-w-md">
-          <h3 className={`text-sm font-medium mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} flex items-center gap-1.5`}>
-            <HelpCircle size={14} />
-            {t('common.tryAsking')}
-          </h3>
-          
-          <div className="grid grid-cols-1 gap-2 mb-8">
-            {exampleQueries.map((query, index) => (
-              <button 
-                key={index} 
-                className={`text-left ${theme === 'dark' ? 'bg-slate-800 hover:bg-primary/20 border-gray-700' : 'bg-white hover:bg-primary/5 border-gray-200'} p-3 rounded-lg border transition-colors flex items-center gap-2`}
-                onClick={() => handleQueryClick(query.text)}
-              >
-                <span className="text-xl">{query.icon}</span>
-                <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>{query.text}</span>
-              </button>
-            ))}
+        {/* Recent queries */}
+        {recentQueries.length > 0 && (
+          <div className="w-full max-w-md">
+            <h3 className={`text-sm font-medium mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} flex items-center gap-1.5`}>
+              <History size={14} />
+              {t('common.recentQueries')}
+            </h3>
+            
+            <div className="space-y-2">
+              {recentQueries.map((query) => (
+                <Card 
+                  key={query.id} 
+                  className={`overflow-hidden hover:border-primary/50 transition-colors cursor-pointer ${theme === 'dark' ? 'bg-slate-800 border-gray-700' : ''}`}
+                >
+                  <CardContent className="p-3">
+                    <div className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : ''}`}>{query.question}</div>
+                    <div className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-1 line-clamp-1`}>{query.answer}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-          
-          {/* Recent queries */}
-          {recentQueries.length > 0 && (
-            <>
-              <h3 className={`text-sm font-medium mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} flex items-center gap-1.5`}>
-                <History size={14} />
-                {t('common.recentQueries')}
-              </h3>
-              
-              <div className="space-y-2">
-                {recentQueries.map((query) => (
-                  <Card 
-                    key={query.id} 
-                    className={`overflow-hidden hover:border-primary/50 transition-colors cursor-pointer ${theme === 'dark' ? 'bg-slate-800 border-gray-700' : ''}`}
-                    onClick={() => handleQueryClick(query.question)}
-                  >
-                    <CardContent className="p-3">
-                      <div className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : ''}`}>{query.question}</div>
-                      <div className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-1 line-clamp-1`}>{query.answer}</div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        )}
       </main>
-      
-      {/* Dialog Response */}
-      <DialogResponse 
-        isOpen={dialogOpen} 
-        onClose={handleDialogClose} 
-        query={selectedQuery} 
-      />
       
       {/* Footer */}
       <footer className={`text-center p-4 text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
