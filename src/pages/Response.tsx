@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Volume2, Mic, MicOff } from 'lucide-react';
+import { ArrowLeft, Volume2, Mic, MicOff, Home } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useApp } from '@/contexts/AppContext';
 import { Button } from '@/components/ui/button';
@@ -156,7 +156,7 @@ const Response: React.FC = () => {
               </CardContent>
             </Card>
             
-            <div className="text-center">
+            <div className="text-center space-y-4">
               <Button
                 onClick={handleListen}
                 variant="outline"
@@ -164,6 +164,16 @@ const Response: React.FC = () => {
               >
                 {isListening ? <MicOff size={16} /> : <Mic size={16} />}
                 {isListening ? t('stopListening') : t('askAnother')}
+              </Button>
+              
+              {/* Back to Home Button */}
+              <Button
+                onClick={() => navigate('/')}
+                variant="ghost"
+                className={`rounded-full px-6 py-3 flex items-center gap-2 w-full justify-center ${theme === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-200'}`}
+              >
+                <Home size={16} />
+                {t('backToHome') || 'Back to Home'}
               </Button>
             </div>
           </div>
