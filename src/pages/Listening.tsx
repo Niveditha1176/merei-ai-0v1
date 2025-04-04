@@ -47,10 +47,10 @@ const Listening: React.FC = () => {
       
       <div className="text-center mb-4">
         <h1 className="text-2xl font-medium mb-2">
-          {t('listening')}...
+          {t('common.listening')}...
         </h1>
         <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-          {t('speakNow')}
+          {t('common.speakNow')}
         </p>
         
         {/* Wave ripple visualization replacing the mic icon */}
@@ -72,7 +72,7 @@ const Listening: React.FC = () => {
       
       <div className="text-center max-w-sm">
         <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mb-6`}>
-          {t('speakClearly')}
+          {t('common.speakClearly')}
         </p>
         
         <Button 
@@ -81,7 +81,7 @@ const Listening: React.FC = () => {
           onClick={handleCancel}
         >
           <X size={16} />
-          {t('cancel')}
+          {t('common.cancel')}
         </Button>
       </div>
     </div>

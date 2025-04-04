@@ -1,3 +1,4 @@
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -38,7 +39,28 @@ const enTranslations = {
     "soilAnalysis": "Soil Analysis",
     "soilAnalysisDesc": "Your soil sample shows low nitrogen (N) content and moderate phosphorus (P). pH level is 6.2 which is slightly acidic.",
     "improvementStrategy": "Improvement Strategy",
-    "improvementDesc": "Add compost and well-rotted manure to improve nitrogen levels. Consider growing legumes as a cover crop to fix nitrogen naturally."
+    "improvementDesc": "Add compost and well-rotted manure to improve nitrogen levels. Consider growing legumes as a cover crop to fix nitrogen naturally.",
+    // Response page translations
+    "analyzingInput": "Analyzing your input",
+    "pleaseWait": "Please wait...",
+    "pestControl": "Pest Control",
+    "play": "Play",
+    "pause": "Pause",
+    "stopListening": "Stop listening",
+    "askAnother": "Ask another question",
+    "backToHome": "Back to Home",
+    "goBack": "Go back",
+    "goToListening": "Go to listening page",
+    "speakClearly": "Speak clearly and slowly",
+    // Onboarding translations
+    "welcomeToMerei": "Welcome to MEREI!",
+    "speakNaturally": "Speak naturally in your language",
+    "continue": "Continue",
+    "tapAndSpeak": "Tap and speak like this:",
+    "getStarted": "Get Started",
+    // NotFound translations
+    "pageNotFound": "Oops! Page not found",
+    "returnHome": "Return to Home"
   }
 };
 
@@ -83,7 +105,28 @@ i18n
             "soilAnalysis": "ಮಣ್ಣಿನ ವಿಶ್ಲೇಷಣೆ",
             "soilAnalysisDesc": "ನಿಮ್ಮ ಮಣ್ಣಿನ ಮಾದರಿಯಲ್ಲಿ ಕಡಿಮೆ ಸಾರಜನಕ (N) ಮತ್ತು ಮಧ್ಯಮ ರಂಜಕ (P) ಇದೆ. pH ಮಟ್ಟ 6.2 ಇದು ಸ್ವಲ್ಪ ಆಮ್ಲೀಯವಾಗಿದೆ.",
             "improvementStrategy": "ಸುಧಾರಣಾ ತಂತ್ರ",
-            "improvementDesc": "ಸಾರಜನಕದ ಮಟ್ಟವನ್ನು ಹೆಚ್ಚಿಸಲು ಕಾಂಪೋಸ್ಟ್ ಮತ್ತು ಚೆನ್ನಾಗಿ ಕೊಳೆತ ಗೊಬ್ಬರವನ್ನು ಸೇರಿಸಿ. ನೈಸರ್ಗಿಕವಾಗಿ ಸಾರಜನಕವನ್ನು ಸ್ಥಿರಗೊಳಿಸಲು ಕಾಳುಗಳನ್ನು ಮುಚ್ಚುಬೆಳೆಯಾಗಿ ಬೆಳೆಯಲು ಪರಿಗಣಿಸಿ."
+            "improvementDesc": "ಸಾರಜನಕದ ಮಟ್ಟವನ್ನು ಹೆಚ್ಚಿಸಲು ಕಾಂಪೋಸ್ಟ್ ಮತ್ತು ಚೆನ್ನಾಗಿ ಕೊಳೆತ ಗೊಬ್ಬರವನ್ನು ಸೇರಿಸಿ. ನೈಸರ್ಗಿಕವಾಗಿ ಸಾರಜನಕವನ್ನು ಸ್ಥಿರಗೊಳಿಸಲು ಕಾಳುಗಳನ್ನು ಮುಚ್ಚುಬೆಳೆಯಾಗಿ ಬೆಳೆಯಲು ಪರಿಗಣಿಸಿ.",
+            // Response page translations
+            "analyzingInput": "ನಿಮ್ಮ ಇನ್‌ಪುಟ್ ಅನ್ನು ವಿಶ್ಲೇಷಿಸಲಾಗುತ್ತಿದೆ",
+            "pleaseWait": "ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ...",
+            "pestControl": "ಕೀಟ ನಿಯಂತ್ರಣ",
+            "play": "ಪ್ಲೇ ಮಾಡಿ",
+            "pause": "ವಿರಾಮ",
+            "stopListening": "ಕೇಳುವುದನ್ನು ನಿಲ್ಲಿಸಿ",
+            "askAnother": "ಮತ್ತೊಂದು ಪ್ರಶ್ನೆಯನ್ನು ಕೇಳಿ",
+            "backToHome": "ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+            "goBack": "ಹಿಂದೆ ಹೋಗಿ",
+            "goToListening": "ಕೇಳುವ ಪುಟಕ್ಕೆ ಹೋಗಿ",
+            "speakClearly": "ಸ್ಪಷ್ಟವಾಗಿ ಮತ್ತು ನಿಧಾನವಾಗಿ ಮಾತನಾಡಿ",
+            // Onboarding translations
+            "welcomeToMerei": "MEREI ಗೆ ಸುಸ್ವಾಗತ!",
+            "speakNaturally": "ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಸಹಜವಾಗಿ ಮಾತನಾಡಿ",
+            "continue": "ಮುಂದುವರಿಸಿ",
+            "tapAndSpeak": "ಹೀಗೆ ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಮಾತನಾಡಿ:",
+            "getStarted": "ಪ್ರಾರಂಭಿಸಿ",
+            // NotFound translations
+            "pageNotFound": "ಓಹ್! ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ",
+            "returnHome": "ಮುಖಪುಟಕ್ಕೆ ಮರಳಿ"
           }
         }
       },
@@ -119,7 +162,28 @@ i18n
             "soilAnalysis": "మట్టి విశ్లేషణ",
             "soilAnalysisDesc": "మీ మట్టి నమూనాలో తక్కువ నత్రజని (N) మరియు మధ్యస్థ భాస్వరం (P) ఉంది. pH స్థాయి 6.2, ఇది కొంచెం ఆమ్లీయంగా ఉంది.",
             "improvementStrategy": "మెరుగుదల వ్యూహం",
-            "improvementDesc": "నత్రజని స్థాయిలను మెరుగుపరచడానికి కంపోస్ట్ మరియు బాగా కుళ్ళిన ఎరువును చేర్చండి. సహజంగా నత్రజనిని స్థిరీకరించడానికి కవర్ క్రాప్‌గా పప్పుధాన్యాలను పెంచడాన్ని పరిగణించండి."
+            "improvementDesc": "నత్రజని స్థాయిలను మెరుగుపరచడానికి కంపోస్ట్ మరియు బాగా కుళ్ళిన ఎరువును చేర్చండి. సహజంగా నత్రజనిని స్థిరీకరించడానికి కవర్ క్రాప్‌గా పప్పుధాన్యాలను పెంచడాన్ని పరిగణించండి.",
+            // Response page translations
+            "analyzingInput": "మీ ఇన్‌పుట్‌ను విశ్లేషిస్తోంది",
+            "pleaseWait": "దయచేసి వేచి ఉండండి...",
+            "pestControl": "పురుగుల నియంత్రణ",
+            "play": "ప్లే",
+            "pause": "పాజ్",
+            "stopListening": "వినడం ఆపండి",
+            "askAnother": "మరొక ప్రశ్న అడగండి",
+            "backToHome": "హోమ్‌కి తిరిగి వెళ్ళండి",
+            "goBack": "వెనక్కి వెళ్ళండి",
+            "goToListening": "వినే పేజీకి వెళ్ళండి",
+            "speakClearly": "స్పష్టంగా మరియు నెమ్మదిగా మాట్లాడండి",
+            // Onboarding translations
+            "welcomeToMerei": "MEREI కి స్వాగతం!",
+            "speakNaturally": "మీ భాషలో సహజంగా మాట్లాడండి",
+            "continue": "కొనసాగించండి",
+            "tapAndSpeak": "ఇలా నొక్కి మాట్లాడండి:",
+            "getStarted": "ప్రారంభించండి",
+            // NotFound translations
+            "pageNotFound": "అయ్యో! పేజీ కనబడలేదు",
+            "returnHome": "హోమ్‌కి తిరిగి వెళ్లండి"
           }
         }
       },
@@ -155,7 +219,28 @@ i18n
             "soilAnalysis": "மண் பகுப்பாய்வு",
             "soilAnalysisDesc": "உங்கள் மண் மாதிரியில் குறைந்த நைட்ரஜன் (N) மற்றும் மிதமான பாஸ்பரஸ் (P) உள்ளது. pH அளவு 6.2, இது சற்று அமிலத்தன்மை கொண்டது.",
             "improvementStrategy": "மேம்பாட்டு உத்தி",
-            "improvementDesc": "நைட்ரஜன் அளவை அதிகரிக்க கம்போஸ்ட் மற்றும் நன்கு மக்கிய எரு சேர்க்கவும். இயற்கையாக நைட்ரஜனை நிலைநிறுத்த பயறு வகை பயிர்களை கவர் க்ராப்பாக வளர்ப்பதை பரிசீலிக்கவும்."
+            "improvementDesc": "நைட்ரஜன் அளவை அதிகரிக்க கம்போஸ்ட் மற்றும் நன்கு மக்கிய எரு சேர்க்கவும். இயற்கையாக நைட்ரஜனை நிலைநிறுத்த பயறு வகை பயிர்களை கவர் க்ராப்பாக வளர்ப்பதை பரிசீலிக்கவும்.",
+            // Response page translations
+            "analyzingInput": "உங்கள் உள்ளீட்டை ஆராய்கிறது",
+            "pleaseWait": "தயவுசெய்து காத்திருக்கவும்...",
+            "pestControl": "பூச்சி கட்டுப்பாடு",
+            "play": "இயக்கு",
+            "pause": "இடைநிறுத்து",
+            "stopListening": "கேட்பதை நிறுத்து",
+            "askAnother": "மற்றொரு கேள்வியைக் கேள்",
+            "backToHome": "முகப்பு பக்கத்திற்குத் திரும்பு",
+            "goBack": "பின் செல்",
+            "goToListening": "கேட்கும் பக்கத்திற்குச் செல்",
+            "speakClearly": "தெளிவாகவும் மெதுவாகவும் பேசுங்கள்",
+            // Onboarding translations
+            "welcomeToMerei": "MEREI க்கு வரவேற்கிறோம்!",
+            "speakNaturally": "உங்கள் மொழியில் இயல்பாகப் பேசுங்கள்",
+            "continue": "தொடரவும்",
+            "tapAndSpeak": "இப்படி தட்டி பேசுங்கள்:",
+            "getStarted": "தொடங்குங்கள்",
+            // NotFound translations
+            "pageNotFound": "அடடா! பக்கம் காணப்படவில்லை",
+            "returnHome": "முகப்புப் பக்கத்திற்குத் திரும்பு"
           }
         }
       }

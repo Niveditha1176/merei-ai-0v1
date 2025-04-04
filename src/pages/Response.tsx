@@ -68,7 +68,7 @@ const Response: React.FC = () => {
           className="text-primary"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span className="sr-only">Go back</span>
+          <span className="sr-only">{t('common.goBack')}</span>
         </Button>
         
         {/* Mic button - positioned on right side */}
@@ -79,7 +79,7 @@ const Response: React.FC = () => {
           className="relative group text-primary"
         >
           <Mic className="h-5 w-5" />
-          <span className="sr-only">Go to listening page</span>
+          <span className="sr-only">{t('common.goToListening')}</span>
           
           {/* Small wave animation on hover */}
           <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 flex items-end justify-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -110,9 +110,9 @@ const Response: React.FC = () => {
                 <div className="w-1.5 h-3 bg-primary rounded-full animate-wave"></div>
               </div>
             </div>
-            <p className="text-lg font-medium">{t('analyzingInput') || 'Analyzing your input'}</p>
+            <p className="text-lg font-medium">{t('common.analyzingInput')}</p>
             <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-2`}>
-              {t('pleaseWait') || 'Please wait...'}
+              {t('common.pleaseWait')}
             </p>
           </div>
         ) : (
@@ -121,7 +121,7 @@ const Response: React.FC = () => {
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-lg font-medium">
-                    {currentQuery || t('pestControl') || 'Pest Control'}
+                    {currentQuery || t('common.pestControl')}
                   </h3>
                   <Button 
                     variant="ghost" 
@@ -156,7 +156,7 @@ const Response: React.FC = () => {
                     className="rounded-full px-6 py-3 flex items-center gap-2"
                   >
                     <Volume2 size={16} />
-                    {isPlaying ? (t('pause') || 'Pause') : (t('play') || 'Play')}
+                    {isPlaying ? t('common.pause') : t('common.play')}
                   </Button>
                 </div>
               </CardContent>
@@ -169,7 +169,7 @@ const Response: React.FC = () => {
                 className="rounded-full px-6 py-3 flex items-center gap-2"
               >
                 {isListening ? <MicOff size={16} /> : <Mic size={16} />}
-                {isListening ? t('stopListening') : t('askAnother') || 'Ask another question'}
+                {isListening ? t('common.stopListening') : t('common.askAnother')}
               </Button>
               
               {/* Back to Home Button */}
@@ -179,7 +179,7 @@ const Response: React.FC = () => {
                 className={`rounded-full px-6 py-3 flex items-center gap-2 w-full justify-center ${theme === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-200'}`}
               >
                 <Home size={16} />
-                {t('backToHome') || 'Back to Home'}
+                {t('common.backToHome')}
               </Button>
             </div>
           </div>
