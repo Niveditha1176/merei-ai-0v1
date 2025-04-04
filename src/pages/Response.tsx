@@ -110,9 +110,9 @@ const Response: React.FC = () => {
                 <div className="w-1.5 h-3 bg-primary rounded-full animate-wave"></div>
               </div>
             </div>
-            <p className="text-lg font-medium">Analyzing your input</p>
+            <p className="text-lg font-medium">{t('analyzingInput') || 'Analyzing your input'}</p>
             <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-2`}>
-              {t('pleaseWait')}
+              {t('pleaseWait') || 'Please wait...'}
             </p>
           </div>
         ) : (
@@ -121,7 +121,7 @@ const Response: React.FC = () => {
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-lg font-medium">
-                    {currentQuery || t('pestControl')}
+                    {currentQuery || t('pestControl') || 'Pest Control'}
                   </h3>
                   <Button 
                     variant="ghost" 
@@ -133,26 +133,32 @@ const Response: React.FC = () => {
                   </Button>
                 </div>
                 
-                <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {response}
-                </p>
-                
-                {isPlaying && (
-                  <div className="mt-4 flex justify-center">
-                    {/* Audio wave visualization during playback */}
-                    <div className="h-8 flex items-end justify-center gap-1">
-                      <div className="w-1 h-2 bg-primary/60 rounded-full animate-wave"></div>
-                      <div className="w-1 h-3 bg-primary/70 rounded-full animate-wave animation-delay-300"></div>
-                      <div className="w-1 h-4 bg-primary/80 rounded-full animate-wave animation-delay-600"></div>
-                      <div className="w-1 h-5 bg-primary/90 rounded-full animate-wave animation-delay-300"></div>
-                      <div className="w-1 h-6 bg-primary rounded-full animate-wave"></div>
-                      <div className="w-1 h-5 bg-primary/90 rounded-full animate-wave animation-delay-300"></div>
-                      <div className="w-1 h-4 bg-primary/80 rounded-full animate-wave animation-delay-600"></div>
-                      <div className="w-1 h-3 bg-primary/70 rounded-full animate-wave animation-delay-300"></div>
-                      <div className="w-1 h-2 bg-primary/60 rounded-full animate-wave"></div>
-                    </div>
+                {/* Audio wave visualization only for voice output - no text display */}
+                <div className="mt-6 mb-4 flex justify-center">
+                  <div className={`h-12 flex items-end justify-center gap-1 ${isPlaying ? 'opacity-100' : 'opacity-40'}`}>
+                    <div className={`w-1 h-4 bg-primary/70 rounded-full ${isPlaying ? 'animate-wave' : ''}`}></div>
+                    <div className={`w-1 h-6 bg-primary/80 rounded-full ${isPlaying ? 'animate-wave animation-delay-300' : ''}`}></div>
+                    <div className={`w-1 h-8 bg-primary/90 rounded-full ${isPlaying ? 'animate-wave animation-delay-600' : ''}`}></div>
+                    <div className={`w-1 h-10 bg-primary rounded-full ${isPlaying ? 'animate-wave animation-delay-300' : ''}`}></div>
+                    <div className={`w-1 h-12 bg-primary rounded-full ${isPlaying ? 'animate-wave' : ''}`}></div>
+                    <div className={`w-1 h-10 bg-primary/90 rounded-full ${isPlaying ? 'animate-wave animation-delay-300' : ''}`}></div>
+                    <div className={`w-1 h-8 bg-primary/80 rounded-full ${isPlaying ? 'animate-wave animation-delay-600' : ''}`}></div>
+                    <div className={`w-1 h-6 bg-primary/70 rounded-full ${isPlaying ? 'animate-wave animation-delay-300' : ''}`}></div>
+                    <div className={`w-1 h-4 bg-primary/60 rounded-full ${isPlaying ? 'animate-wave' : ''}`}></div>
                   </div>
-                )}
+                </div>
+                
+                {/* Voice controls */}
+                <div className="flex justify-center">
+                  <Button
+                    onClick={togglePlayback}
+                    variant="outline"
+                    className="rounded-full px-6 py-3 flex items-center gap-2"
+                  >
+                    <Volume2 size={16} />
+                    {isPlaying ? (t('pause') || 'Pause') : (t('play') || 'Play')}
+                  </Button>
+                </div>
               </CardContent>
             </Card>
             
@@ -163,7 +169,7 @@ const Response: React.FC = () => {
                 className="rounded-full px-6 py-3 flex items-center gap-2"
               >
                 {isListening ? <MicOff size={16} /> : <Mic size={16} />}
-                {isListening ? t('stopListening') : t('askAnother')}
+                {isListening ? t('stopListening') : t('askAnother') || 'Ask another question'}
               </Button>
               
               {/* Back to Home Button */}
