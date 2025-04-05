@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { useApp } from '@/contexts/AppContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import ResponseCard from '@/components/ResponseCard';
+import { PieChart, CloudLightning, Leaf } from 'lucide-react';
 
 const Response: React.FC = () => {
   const { t } = useTranslation();
@@ -161,6 +163,33 @@ const Response: React.FC = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Adding Response cards that are properly translated */}
+            <div className="mb-8">
+              <ResponseCard 
+                title={t('common.pestDetection')} 
+                icon={<Leaf className="h-5 w-5" />}
+                delayIndex={0}
+              >
+                <p>{t('common.pestDescription')}</p>
+              </ResponseCard>
+
+              <ResponseCard 
+                title={t('common.recommendedAction')} 
+                icon={<CloudLightning className="h-5 w-5" />}
+                delayIndex={1}
+              >
+                <p>{t('common.actionDescription')}</p>
+              </ResponseCard>
+
+              <ResponseCard 
+                title={t('common.soilAnalysis')} 
+                icon={<PieChart className="h-5 w-5" />}
+                delayIndex={2}
+              >
+                <p>{t('common.soilAnalysisDesc')}</p>
+              </ResponseCard>
+            </div>
             
             <div className="text-center space-y-4">
               <Button
