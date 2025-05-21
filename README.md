@@ -1,6 +1,6 @@
 
 
-##Project information
+# Project information
 
 # 🌱 MEREI: Voice AI for Sustainable Farming
 
