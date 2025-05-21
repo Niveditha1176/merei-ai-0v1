@@ -18,7 +18,7 @@ Replies via voice+text: *"Spray neem oil + 5L water. Rain expected tomorrow ☔"
 
 ## 🛠️ Tech Stack
 **Frontend**
-flowchart LR
+# flowchart 
   A[React Native] --> B[NativeBase UI]
   B --> C[Alan AI Voice SDK]
   C --> D[Reanimated Animations]
