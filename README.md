@@ -1,10 +1,11 @@
 
 
-# Project information
+
 
 # 🌱 MEREI: Voice AI for Sustainable Farming
 
-**Empowering 500M small farmers with a zero-literacy-required AI assistant**  
+**Empowering 500M small farmers with a zero-literacy-required AI assistant... website link: https://merei-ai-0v1.lovable.app/**
+
 
 **semi finalists  @ Ai for light hackathon conducted by VIT bengaluru | Aligned with UN SDG 2 (Zero Hunger) & 12 (Responsible Consumption)**
 
