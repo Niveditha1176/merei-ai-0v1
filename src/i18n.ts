@@ -29,7 +29,7 @@ const enTranslations = {
     "allRightsReserved": "All Rights Reserved",
     // Dialog content translations
     "pestDetection": "Pest Detection",
-    "pestDescription": "Your cotton field appears to have signs of aphid infestation. These small insects are visible on the underside of leaves.",
+    "pestDescription": "Your sunflower field appears to have signs of aphid infestation. These small insects are visible on the underside of leaves.",
     "recommendedAction": "Recommended Action",
     "actionDescription": "Apply neem oil spray in the early morning. Use 5ml per liter of water and spray every 7 days for 3 weeks.",
     "weatherForecast": "Weather Forecast",
@@ -95,7 +95,7 @@ i18n
             "allRightsReserved": "ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ",
             // Dialog content translations
             "pestDetection": "ಕೀಟ ಪತ್ತೆ",
-            "pestDescription": "ನಿಮ್ಮ ಹತ್ತಿ ಹೊಲದಲ್ಲಿ ಸೀಳೆಗಳ ಸೋಂಕಿನ ಲಕ್ಷಣಗಳು ಕಂಡುಬಂದಿವೆ. ಈ ಚಿಕ್ಕ ಕೀಟಗಳು ಎಲೆಗಳ ಕೆಳಭಾಗದಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.",
+            "pestDescription": "ನಿಮ್ಮ ಸೂರ್ಯಕಾಂತಿ ಹೊಲದಲ್ಲಿ ಸೀಳೆಗಳ ಸೋಂಕಿನ ಲಕ್ಷಣಗಳು ಕಂಡುಬಂದಿವೆ. ಈ ಚಿಕ್ಕ ಕೀಟಗಳು ಎಲೆಗಳ ಕೆಳಭಾಗದಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.",
             "recommendedAction": "ಶಿಫಾರಸು ಮಾಡಿದ ಕ್ರಿಯೆ",
             "actionDescription": "ಬೆಳಿಗ್ಗೆ ಬೇಗನೆ ಬೇವಿನ ಎಣ್ಣೆ ಸಿಂಪಡಿಸಿ. ಒಂದು ಲೀಟರ್ ನೀರಿಗೆ 5 ಮಿಲೀ ಬಳಸಿ ಮತ್ತು 3 ವಾರಗಳ ಕಾಲ ಪ್ರತಿ 7 ದಿನಗಳಿಗೊಮ್ಮೆ ಸಿಂಪಡಿಸಿ.",
             "weatherForecast": "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
@@ -152,7 +152,7 @@ i18n
             "allRightsReserved": "అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి",
             // Dialog content translations
             "pestDetection": "పురుగుల గుర్తింపు",
-            "pestDescription": "మీ పత్తి పొలంలో తేళ్ల దాడి లక్షణాలు కనిపిస్తున్నాయి. ఈ చిన్న పురుగులు ఆకుల కింది భాగంలో కనిపిస్తాయి.",
+            "pestDescription": "మీ సూర్యకాంతి పొలంలో తేళ్ల దాడి లక్షణాలు కనిపిస్తున్నాయి. ఈ చిన్న పురుగులు ఆకుల కింది భాగంలో కనిపిస్తాయి.",
             "recommendedAction": "సిఫార్సు చేసిన చర్య",
             "actionDescription": "తెల్లవారుజామున వేప నూనె స్ప్రే చేయండి. లీటరు నీటికి 5 మిల్లీలు ఉపయోగించి 3 వారాలపాటు ప్రతి 7 రోజులకు స్ప్రే చేయండి.",
             "weatherForecast": "వాతావరణ సూచన",
@@ -209,7 +209,7 @@ i18n
             "allRightsReserved": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை",
             // Dialog content translations
             "pestDetection": "பூச்சி கண்டறிதல்",
-            "pestDescription": "உங்கள் பருத்தி வயலில் ஆப்பிட் தாக்குதலின் அறிகுறிகள் தெரிகின்றன. இந்த சிறிய பூச்சிகள் இலைகளின் அடிப்பறத்தில் காணப்படுகின்றன.",
+            "pestDescription": "உங்கள் சூரியகாந்தி வயலில் ஆப்பிட் தாக்குதலின் அறிகுறிகள் தெரிகின்றன. இந்த சிறிய பூச்சிகள் இலைகளின் அடிப்பறத்தில் காணப்படுகின்றன.",
             "recommendedAction": "பரிந்துரைக்கப்பட்ட நடவடிக்கை",
             "actionDescription": "அதிகாலையில் வேப்பெண்ணெய் தெளிப்பு செய்யவும். ஒரு லிட்டர் தண்ணீருக்கு 5மிலி பயன்படுத்தி 3 வாரங்களுக்கு 7 நாட்களுக்கு ஒருமுறை தெளிக்கவும்.",
             "weatherForecast": "வானிலை முன்னறிவிப்பு",

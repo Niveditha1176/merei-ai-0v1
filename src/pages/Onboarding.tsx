@@ -72,7 +72,7 @@ const Onboarding: React.FC = () => {
             ) : language === 'ta' ? (
               <p className="text-center py-2 font-medium">"என் மண்ணை சரிபார்க்கவும்"</p>
             ) : (
-              <p className="text-center py-2 font-medium">"Check for pests in my cotton field"</p>
+              <p className="text-center py-2 font-medium">"Check for pests in my sunflower field"</p>
             )}
           </div>
           

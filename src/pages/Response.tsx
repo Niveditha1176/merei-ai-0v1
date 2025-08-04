@@ -27,8 +27,8 @@ const Response: React.FC = () => {
     const timer = setTimeout(() => {
       // Simulated response for now
       const simulatedResponse = currentQuery ? 
-        `Based on your question about "${currentQuery}", I recommend checking for aphids on the underside of leaves. They are common in cotton fields this season. Spray with neem oil solution for organic pest control.` : 
-        `For pest control in cotton fields, regularly inspect plants for aphids, bollworms, and spider mites. Use integrated pest management techniques by introducing beneficial insects like ladybugs. Apply neem oil spray early in the morning for best results.`;
+        `Based on your question about "${currentQuery}", I recommend checking for aphids on the underside of leaves. They are common in sunflower fields this season. Spray with neem oil solution for organic pest control.` : 
+        `For pest control in sunflower fields, regularly inspect plants for aphids, bollworms, and spider mites. Use integrated pest management techniques by introducing beneficial insects like ladybugs. Apply neem oil spray early in the morning for best results.`;
       
       setResponse(simulatedResponse);
       setIsGenerating(false);

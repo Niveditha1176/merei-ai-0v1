@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     // Simulate voice recognition - in a real app this would use the Web Speech API
     setTimeout(() => {
       const mockQueries = {
-        'en': 'Check for pests in my cotton field',
+        'en': 'Check for pests in my sunflower field',
         'hi': 'मेरी मिट्टी की जांच करो',
         'pa': 'ਮੇਰੇ ਖੇਤ ਦੀ ਮਿੱਟੀ ਦੀ ਜਾਂਚ ਕਰੋ',
         'te': 'నా పంట పొలంలో పురుగుల కోసం చెక్ చేయండి',
